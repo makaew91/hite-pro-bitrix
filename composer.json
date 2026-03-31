@@ -1,0 +1,26 @@
+{
+    "name": "makaew/stroymarket-bitrix",
+    "description": "Construction materials e-commerce on 1C-Bitrix",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Makaew\\Store\\": "local/modules/makaew.store/lib/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "phpstan": "phpstan analyse"
+    }
+}
