@@ -27,3 +27,48 @@ $eventManager->addEventHandler(
     'OnSaleOrderSaved',
     ['\Makaew\Store\EventHandler\OrderHandler', 'onSaved']
 );
+
+// --- Обработчики цен ---
+// Логирование изменений цен для аудита
+$eventManager->addEventHandler(
+    'catalog',
+    'OnPriceUpdate',
+    ['\Makaew\Store\EventHandler\PriceChangeHandler', 'onPriceUpdate']
+);
+
+// --- Инвалидация кэша каталога ---
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockElementAdd',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onElementChange']
+);
+
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockElementUpdate',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onElementChange']
+);
+
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockElementDelete',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onElementChange']
+);
+
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockSectionAdd',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onSectionChange']
+);
+
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockSectionUpdate',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onSectionChange']
+);
+
+$eventManager->addEventHandler(
+    'iblock',
+    'OnAfterIBlockSectionDelete',
+    ['\Makaew\Store\EventHandler\CacheInvalidationHandler', 'onSectionChange']
+);
