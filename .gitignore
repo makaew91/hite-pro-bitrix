@@ -1,0 +1,47 @@
+# 1C-Bitrix core
+/bitrix/*
+!/bitrix/php_interface/
+!/bitrix/.settings.php
+
+# Keep local directory (custom code)
+!/local/
+
+# Upload directory
+/upload/
+
+# Cache
+/bitrix/cache/
+/bitrix/managed_cache/
+/bitrix/stack_cache/
+/local/cache/
+
+# Temporary files
+/bitrix/tmp/
+/local/tmp/
+
+# Logs
+/bitrix/logs/
+*.log
+
+# Composer
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node (if frontend build is needed)
+node_modules/
