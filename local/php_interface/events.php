@@ -13,5 +13,17 @@ use Bitrix\Main\EventManager;
 
 $eventManager = EventManager::getInstance();
 
-// Обработчики событий будут добавлены в feature/event-handlers
-// и feature/cart-order ветках.
+// --- Обработчики заказов ---
+// Валидация и обработка перед сохранением заказа
+$eventManager->addEventHandler(
+    'sale',
+    'OnSaleOrderBeforeSaved',
+    ['\Makaew\Store\EventHandler\OrderHandler', 'onBeforeSaved']
+);
+
+// Действия после создания заказа (уведомления, логирование)
+$eventManager->addEventHandler(
+    'sale',
+    'OnSaleOrderSaved',
+    ['\Makaew\Store\EventHandler\OrderHandler', 'onSaved']
+);
